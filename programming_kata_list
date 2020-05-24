@@ -103,9 +103,9 @@ Fun with Files
 - Create temp file / dir
 - Force remove file
 - Force remove directory
-- csv parser
 - Read file to string. If not possible, return nil
 100 Pt.
+- csv parser
 - Implement StupidCrypt algorithm (See stupidcrypt.cr)
 500 Pt.
 - xml parser
