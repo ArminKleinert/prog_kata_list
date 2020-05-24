@@ -1,0 +1,210 @@
+LVL | Points | -last | Name
+----+--------+-------+-----------------------
+0   |      0 |     0 | Normal
+1   |     50 |    50 | Novice
+2   |    150 |   100 | Novice Bronze
+3   |    300 |   150 | Novice Silver
+4   |    500 |   200 | Novice Gold
+5   |    750 |   250 | Novice Diamond
+6   |   1100 |   350 | Apprentice
+7   |   1550 |   450 | Apprentice Bronze
+8   |   2100 |   550 | Apprentice Silver
+9   |   2750 |   650 | Apprentice Gold
+10  |   3500 |   750 | Apprentice Diamond
+11  |   4450 |   950 | Adept
+12  |   5600 |  1150 | Adept Bronze
+13  |   6950 |  1350 | Adept Silver
+14  |   8500 |  1550 | Adept Gold
+15  |  10250 |  1750 | Adept Diamond
+16  |  12200 |  1950 | Adept Star
+17  |  14450 |  2250 | Expert
+18  |  17000 |  2550 | Expert Bronze
+19  |  19850 |  2850 | Expert Silver
+20  |  23000 |  3150 | Expert Gold
+21  |  26450 |  3450 | Expert Diamond
+22  |  30200 |  3750 | Expert Star
+23  |  34350 |  4150 | Master
+24  |  38900 |  4550 | Master Bronze
+25  |  43950 |  5050 | Master Silver
+26  |  49500 |  5550 | Master Gold
+27  |  55650 |  6150 | Master Diamond
+28  |  62400 |  6750 | Master Star
+29  |  69850 |  7450 | Master Star2
+30  |  80000 | 10150 | Master Star3
+
+Fun with numbers
+10 Pt.
+- Implement sum_of_divisors (SOD) function
+  Sum all divisors of an integer (Except the number and 1). Negative numbers give negative output. Expect input to be an integer.
+- Implement notxorshift64 (Example in Crystal)
+- Implement fibonacci with (Pts. are given for each)
+  - Recursion
+  - Memoization (if possible)
+  - Tail recursion (if possible)
+  - Big numbers (fib(5000))
+  - Iterative with for/while/(goto (maybe))
+- Implement factorial with  (Pts. are given for each)
+  - Recursion
+  - Memoization (if possible)
+  - Big numbers (if possible)
+  - Iteration
+- Reverse number digits
+
+Fun with Strings
+10 Pt.
+- "lines" function for string
+- "chars" function for string
+- Roman<->Arabic numbers
+- Function that changes the following if inside a word:
+  5 to S, 0 to O, 1 to I, etc.
+- "pad_left" function (takes string, new length and filler-string)
+- "pad_right" function (takes string, new length and filler-string)
+100 Pt.
+- Find longest common sequence in 2 strings (See lcs_example.java)
+- StringToCamelcase function: https://www.codewars.com/kata/517abf86da9663f1d2000003
+- tabs to spaces and spaces to tabs
+- Write a string-to-float function
+- Write a float-to-string function
+- Length of the longest substring without repeating characters
+  https://leetcode.com/problems/longest-substring-without-repeating-characters/solution/Longest
+- Substring with At Least N Repeating Characters
+- Longest Substring with At Most N Distinct Characters
+- Write a string-to-int function without number format (Always decimal)
+- Write a string-to-int function with number format (decimal, hex, binary, octal)
+- Write an int-to-string funtion without number format (Always decimal)
+- Write an int-to-string funtion with number format (decimal, hex, binary, octal)
+
+Fun with Collections
+10 Pt.
+- Get only non-unique elements from list
+- Get only unique elements
+- Average of a list
+- Sum of a list
+- Minimal value of a list
+- Maximum value of a list
+- Implement Quicksort (Example in Quicksort.java)
+- Implement Bubblesort (Example in Bubblesort.java)
+100 Pt.
+- "reduce" list with function as argument
+- "map" function to list and return modified list
+- "filter" and "remove" function for lists with predicate function
+- "contains" function for list
+. "deep-contains" function for nested maps/lists
+- "any", "some" and "all" functions checking predicates on lists
+- "index of" function
+- "last_index_of" function
+- "sublist" function
+- "walk" function
+
+Fun with Files
+10 Pt.
+- "Hello-World" interpreter
+- Copy file / directory
+- Create temp file / dir
+- Force remove file
+- Force remove directory
+- csv parser
+- Read file to string. If not possible, return nil
+100 Pt.
+- Implement StupidCrypt algorithm (See stupidcrypt.cr)
+500 Pt.
+- xml parser
+- json parser
+- xml to json converter
+- json to csv converter
+- xml to csv converter
+- xml comparator
+1000 Pt.
+- DTD - xml validator
+- xlsx (excel) reader (zip reader and xml parser are provided)
+- Algorithm for compressing files
+- Zip-reader
+
+Fun with Data-structures
+> Collections need to have functions for adding, getting and removing elements;
+> Doubled if the functional iterators are also implemented (if applicable): "map", "foreach", "filter", "remove", "any?/some", "all?/every?", "reduce"
+> Number types need functions for all math-operators and convertions to integral and floating-point types.
+100 Pt.
+- Range
+- ArrayList (Dynamic random access list)
+- LinkedList
+- DoubleLinkedList
+- Deque
+- Queue
+- Stack
+- HashSet
+- HashMap
+- ArrayMap (Map implementation which internally uses an array)
+- SortedSet
+- SortedMap
+- StringBuilder (like in Java)
+- BitSet
+- FreezableList (Dynamic list with a "freeze" method that makes it immutable)
+- Rational number
+- Complex number
+- Bag
+500 Pt.
+- PersistentList
+- PersistentVector
+- PersistentDeque
+- PersistentSet
+- PersistentMap
+1000 Pt.
+- LazySequence
+- BigInteger
+- BigDecimal
+- BigString (indexing by long)
+- BigList (indexing by long)
+
+Fun with games
+1000 Pt.
+- Sudoku (Console)
+- Minesweeper
+- Space invaders
+- Tetris
+- Flappy bird
+- Chess
+- Random dungeon generator
+- Rogue
+
+Fun with AI
+5000 Pt.
+- Sudoku-Solver
+- Chess
+- Rogue (With predictable randomness)
+
+Fun with networks
+1000 Pt.
+- e-mail sender
+- read info from server and send to console / chatroom
+- Get description-text from YouTube video
+5000 Pt.
+- Screen-streaming-tool
+
+Low-level fun
+1000 Pt.
+- Hidden Keylogger, prints pressed keys to a file
+- Write a curses-wrapper by using the ffi of your language
+
+Esoteric fun
+1000 Pt.
+- Befunge interpreter
+- Shakespear interpreter
+- Omg-Rofl interpreter
+
+Productive fun
+500 Pt.
+- Write an Eclipse-plugin
+- SQL-converter
+1000 Pt.
+- Write an interpreter for MAL
+- Write an interpreter for Scheme
+- Write an interpreter for Shaza
+- Text-editor
+5000 Pt.
+- Write a compiler for Scheme
+- Write a compiler for FieraPL
+- Write a compiler for Shaza
+
+Other
+- Youtube-to-MP3 converter (5000 Pt.)
