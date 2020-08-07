@@ -76,19 +76,22 @@ Fun with Strings
 
 Fun with Collections
 10 Pt.
-- Get only non-unique elements from list
-- Get only unique elements
-- Average of a list
-- Sum of a list
-- Minimal value of a list
-- Maximum value of a list
+- Get only non-unique elements from sequence
+- Get only unique elements from sequence
+- Average of a sequence
+- Sum of a sequence
+- Minimal value of a sequence
+- Maximum value of a sequence
 - Implement Quicksort (Example in Quicksort.java)
 - Implement Bubblesort (Example in Bubblesort.java)
+- Length of a sequence
 100 Pt.
-- "reduce" list with function as argument
-- "map" function to list and return modified list
-- "filter" and "remove" function for lists with predicate function
-- "contains" function for list
+- "reduce/foldl" sequence with function as argument
+- "foldr"
+- "map" function to sequence and return modified sequence
+- "map_in_place" Apply function to items in sequence and modify them in place.
+- "filter/select" and "remove/delete" function for lists with predicate function
+- "contains/includes" function for sequence
 . "deep-contains" function for nested maps/lists
 - "any", "some" and "all" functions checking predicates on lists
 - "index of" function
@@ -108,13 +111,12 @@ Fun with Files
 - csv parser
 - Implement StupidCrypt algorithm (See stupidcrypt.cr)
 500 Pt.
-- xml parser
 - json parser
-- xml to json converter
 - json to csv converter
-- xml to csv converter
-- xml comparator
 1000 Pt.
+- xml parser
+- xml comparator
+- xml to json converter
 - DTD - xml validator
 - xlsx (excel) reader (zip reader and xml parser are provided)
 - Algorithm for compressing files
@@ -122,28 +124,32 @@ Fun with Files
 
 Fun with Data-structures
 > Collections need to have functions for adding, getting and removing elements;
-> Doubled if the functional iterators are also implemented (if applicable): "map", "foreach", "filter", "remove", "any?/some", "all?/every?", "reduce"
+> Points are doubled oubled if the functional iterators are also implemented (if applicable): "map", "foreach", "filter", "remove", "any?/some", "all?/every?", "reduce/foldl", "foldr"
 > Number types need functions for all math-operators and convertions to integral and floating-point types.
 100 Pt.
 - Range
+- BitSet
+- Rational number
+- FreezableCollection (Dynamic collection with a "freeze" method that makes it immutable; You should build this on top of another type you made)
+500 Pt.
 - ArrayList (Dynamic random access list)
 - LinkedList
 - DoubleLinkedList
-- Deque
-- Queue
+- LinkedDeque
+- ArrayDeque
+- LinkedQueue
+- ArrayQueue
 - Stack
 - HashSet
 - HashMap
-- ArrayMap (Map implementation which internally uses an array)
+- ArrayMap (Map implementation which internally uses ONE array)
+- ArrayMap2 (Map implementation which internally uses TWO arrays)
 - SortedSet
 - SortedMap
 - StringBuilder (like in Java)
-- BitSet
-- FreezableList (Dynamic list with a "freeze" method that makes it immutable)
-- Rational number
 - Complex number
+- BinaryTree
 - Bag
-500 Pt.
 - PersistentList
 - PersistentVector
 - PersistentDeque
@@ -171,7 +177,8 @@ Fun with AI
 5000 Pt.
 - Sudoku-Solver
 - Chess
-- Rogue (With predictable randomness)
+- Rogue (Assuming predictable randomness)
+- Chatbot
 
 Fun with networks
 1000 Pt.
@@ -185,6 +192,8 @@ Low-level fun
 1000 Pt.
 - Hidden Keylogger, prints pressed keys to a file
 - Write a curses-wrapper by using the ffi of your language
+- Write a conversion for linenoise from C to your language of choice
+  https://github.com/antirez/linenoise
 
 Esoteric fun
 1000 Pt.
@@ -197,10 +206,14 @@ Productive fun
 - Write an Eclipse-plugin
 - SQL-converter
 1000 Pt.
+- Text-editor
+
+Fun with Interpreters
+1000 Pt.
 - Write an interpreter for MAL
 - Write an interpreter for Scheme
 - Write an interpreter for Shaza
-- Text-editor
+- Write an interpreter for Lox
 5000 Pt.
 - Write a compiler for Scheme
 - Write a compiler for FieraPL
