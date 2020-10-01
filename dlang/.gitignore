@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/d-examples
+d-examples.so
+d-examples.dylib
+d-examples.dll
+d-examples.a
+d-examples.lib
+d-examples-test-*
+*.exe
+*.o
+*.obj
+*.lst

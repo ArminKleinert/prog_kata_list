@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"Armin Kleinert"
+	],
+	"copyright": "Copyright © 2020, Armin Kleinert",
+	"description": "Examples for the katas in D.",
+	"license": "proprietary",
+	"name": "d-examples"
+}

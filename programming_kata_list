@@ -43,12 +43,19 @@ Fun with numbers
   - Tail recursion (if possible)
   - Big numbers (fib(5000))
   - Iterative with for/while/(goto (maybe))
-- Implement factorial with  (Pts. are given for each)
+- Implement factorial with (Pts. are given for each)
   - Recursion
+  - Tail recursion
   - Memoization (if possible)
   - Big numbers (if possible)
   - Iteration
-- Reverse number digits
+- Reverse number digits without creating a string
+- Implement a function which calculates the multiplication persistance of a number. (Examples in Ruby and D)
+100 Pt.
+- Write a program which finds the first number with a multiplication persistance of 9 (Examples in Ruby and D)
+  - Optimize
+  - Measure time
+  - You will need big numbers!
 
 Fun with Strings
 10 Pt.
