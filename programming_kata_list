@@ -203,6 +203,8 @@ Low-level fun
   https://github.com/antirez/linenoise
 
 Esoteric fun
+500 Pt.
+- Wrapping brainfuck interpreter (Example in ruby)
 1000 Pt.
 - Befunge interpreter
 - Shakespear interpreter
