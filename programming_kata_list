@@ -41,7 +41,7 @@ Fun with numbers
   - Recursion
   - Memoization (if possible)
   - Tail recursion (if possible)
-  - Big numbers (fib(5000))
+  - Big numbers (fib(50_000))
   - Iterative with for/while/(goto (maybe))
 - Implement factorial with (Pts. are given for each)
   - Recursion
@@ -55,7 +55,6 @@ Fun with numbers
 - Write a program which finds the first number with a multiplication persistance of 9 (Examples in Ruby and D)
   - Optimize
   - Measure time
-  - You will need big numbers!
 
 Fun with Strings
 10 Pt.
@@ -69,7 +68,7 @@ Fun with Strings
 100 Pt.
 - Find longest common sequence in 2 strings (See lcs_example.java)
 - StringToCamelcase function: https://www.codewars.com/kata/517abf86da9663f1d2000003
-- tabs to spaces and spaces to tabs
+- tabs to spaces and spaces to tabs (variable tab-width)
 - Write a string-to-float function
 - Write a float-to-string function
 - Length of the longest substring without repeating characters
@@ -105,6 +104,8 @@ Fun with Collections
 - "last_index_of" function
 - "sublist" function
 - "walk" function
+- Fisher-Yates shuffle
+- Fisher-Yates shuffle "Inside-out"
 
 Fun with Files
 10 Pt.
@@ -114,9 +115,11 @@ Fun with Files
 - Force remove file
 - Force remove directory
 - Read file to string. If not possible, return nil
+- Implement 'cat'
 100 Pt.
 - csv parser
 - Implement StupidCrypt algorithm (See stupidcrypt.cr)
+- Implement 'cat' with posix system calls (If possible)
 500 Pt.
 - json parser
 - json to csv converter
@@ -149,8 +152,8 @@ Fun with Data-structures
 - Stack
 - HashSet
 - HashMap
-- ArrayMap (Map implementation which internally uses ONE array)
-- ArrayMap2 (Map implementation which internally uses TWO arrays)
+- ArrayMap (Map implementation which internally uses 1 array)
+- ArrayMap2 (Map implementation which internally uses 2 arrays)
 - SortedSet
 - SortedMap
 - StringBuilder (like in Java)
