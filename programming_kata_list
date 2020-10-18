@@ -36,6 +36,7 @@ Fun with numbers
 10 Pt.
 - Implement sum_of_divisors (SOD) function
   Sum all divisors of an integer (Except the number and 1). Negative numbers give negative output. Expect input to be an integer.
+- Implement functions to check if a number is even or odd.
 - Implement notxorshift64 (Example in Crystal)
 - Implement fibonacci with (Pts. are given for each)
   - Recursion
@@ -51,10 +52,23 @@ Fun with numbers
   - Iteration
 - Reverse number digits without creating a string
 - Implement a function which calculates the multiplication persistance of a number. (Examples in Ruby and D)
+- Implement a function to calculate the cross-sum of a positive integer (cross sum means adding all digits of a number together). cross_sum(456) => 15
+- Implement a pow function (Pts. for each)
+  - iterative
+  - recursive / tail-recursive
+- Implement a function which can calculate mersenne primes. (mersenne(n) == pow(2,n)-1)
 100 Pt.
 - Write a program which finds the first number with a multiplication persistance of 9 (Examples in Ruby and D)
   - Optimize
   - Measure time
+- Decrement a number by using only the binary operators and, or, xor
+- Function which creates a sequence of N random numbers in a range
+  random_seq(N: uint, min: int, max: int)
+- Write functions to calculate the exponent and coefficient of a positive integer without creating a string or turning the number into a sequence of digits.
+  sci-coefficient(7000) => 7
+  sci-exponent(7000) => 3
+500 Pt.
+- Write a function which, given day, month and year as integers, calculate what weekday it is (gregorian calendar) and return it as a string (weekday)
 
 Fun with Strings
 10 Pt.
@@ -90,8 +104,14 @@ Fun with Collections
 - Maximum value of a sequence
 - Implement Quicksort (Example in Quicksort.java)
 - Implement Bubblesort (Example in Bubblesort.java)
+- Implement Insertionsort (iterative)
+- Implement Selectionsort (iterative)
 - Length of a sequence
+- Quicksort with fallback to insertionsort if a sublist is < 15 elements
 100 Pt.
+- Insertionsort (tail-recursive)
+- Binary search (iterative)
+- Binary search (tail-recursive)
 - "reduce/foldl" sequence with function as argument
 - "foldr"
 - "map" function to sequence and return modified sequence
@@ -106,6 +126,13 @@ Fun with Collections
 - "walk" function
 - Fisher-Yates shuffle
 - Fisher-Yates shuffle "Inside-out"
+- Function which checks if a sequence is sorted.
+- Merge sort
+- Heap sort
+- shellsort (100pt)
+- counting-sort (100pt)
+- pigeon-sort (100pt)
+  - use to sort 100_000_000 numbers and measure the time (100pt)
 
 Fun with Files
 10 Pt.
@@ -165,6 +192,7 @@ Fun with Data-structures
 - PersistentDeque
 - PersistentSet
 - PersistentMap
+- PriorityQueue
 1000 Pt.
 - LazySequence
 - BigInteger
@@ -193,8 +221,8 @@ Fun with AI
 Fun with networks
 1000 Pt.
 - e-mail sender
-- read info from server and send to console / chatroom
 - Get description-text from YouTube video
+- Client-Server cat (like the `cat` program but a client sends text to a server which then prints the text on the console or into a file).
 5000 Pt.
 - Screen-streaming-tool
 
@@ -206,6 +234,8 @@ Low-level fun
   https://github.com/antirez/linenoise
 
 Esoteric fun
+100 Pt.
+- Write a function for "99 Bottles of beer"
 500 Pt.
 - Wrapping brainfuck interpreter (Example in ruby)
 1000 Pt.
@@ -220,7 +250,8 @@ Productive fun
 1000 Pt.
 - Text-editor
 
-Fun with Interpreters
+Fun with interpreters and compilers
+An interpreter/compiler should be implemented at least up to a point where it can be made self-hosting easily.
 1000 Pt.
 - Write an interpreter for MAL
 - Write an interpreter for Scheme
