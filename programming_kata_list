@@ -56,7 +56,7 @@ Fun with numbers
 - Implement a pow function (Pts. for each)
   - iterative
   - recursive / tail-recursive
-- Implement a function which can calculate mersenne primes. (mersenne(n) == pow(2,n)-1)
+- Implement a function which can calculate mersenne primes. (mersenne(n) == pow(2,n)-1 where n is a prime number)
 100 Pt.
 - Write a program which finds the first number with a multiplication persistance of 9 (Examples in Ruby and D)
   - Optimize
@@ -93,6 +93,7 @@ Fun with Strings
 - Write a string-to-int function with number format (decimal, hex, binary, octal)
 - Write an int-to-string funtion without number format (Always decimal)
 - Write an int-to-string funtion with number format (decimal, hex, binary, octal)
+- 99 bottles of beer
 
 Fun with Collections
 10 Pt.
