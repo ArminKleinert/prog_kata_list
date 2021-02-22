@@ -51,6 +51,68 @@ def fib_trec(n)
   fib_trec_sub n, 1, 0
 end
 
+# Also Fibonacci using tail recursion
+def fib_trec_2(n, a, b)
+  if n == 0
+    b
+  else
+    fib_trec_sub(n-1, a+b, a)
+  end
+end
+
+def fib_trec_3(n)
+  proc{|n,a,b| if n == 0
+    b
+  else
+    fib_trec_sub(n-1, a+b, a)
+  end}.call n, 1, 0
+end
+
+def fib_trec_4(n)
+  lambda{|n,a,b| if n == 0
+    b
+  else
+    fib_trec_sub(n-1, a+b, a)
+  end}.call n, 1, 0
+end
+
+def measure_time(num, &block)
+  median = lambda do |arr|
+    arr.sort!
+    len = arr.size
+    (arr[(len-1)/2]+arr[len / 2]) / 2
+  end
+  
+  res = []
+  num.times do
+    t0 = Time.now
+    yield
+    t1 = Time.now
+    res << (t1 - t0) * 1000.0
+  end
+  median.call(res)
+end
+
+=begin
+N = 2500
+RUNS = 5000
+
+puts "Fibonacci iterative (#{N}):"
+puts measure_time(RUNS) { fib N }
+
+puts "Fibonacci tail recursive (#{N}):"
+puts measure_time(RUNS) { fib_trec N }
+
+puts "Fibonacci tail recursive 2 (#{N}):"
+puts measure_time(RUNS) { fib_trec_2 N, 1, 0 }
+
+puts "Fibonacci tail recursive 3 (#{N}):"
+puts measure_time(RUNS) { fib_trec_3 N }
+
+puts "Fibonacci tail recursive 4 (#{N}):"
+puts measure_time(RUNS) { fib_trec_4 N }
+=end
+
 # Iterative factorial with big numbers (default in ruby)
 def fact(n)
   result = 1
@@ -204,9 +266,11 @@ def mult_pers_upto_10_opt
   num
 end
 
+=begin
 t1 = Time.new
 mult_pers_upto_10
 t2 = Time.new
 puts t1
 puts t2
 puts t2 - t1
+=end
