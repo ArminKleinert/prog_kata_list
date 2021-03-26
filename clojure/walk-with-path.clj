@@ -13,12 +13,11 @@
    (cond
      ; Vector
      (vector? coll)
-     (vec
-       (map-indexed
-         (fn [i v]
+     (-> (fn [i v]
            (let [path (cons i _path)]
              (walk-with-path f (f v path) path)))
-         coll))
+         (map coll)
+         (vec))
 
      ; List or array
      (sequential? coll)
@@ -35,6 +34,13 @@
                   (let [path (cons k _path)]
                     (vector k (walk-with-path f (f v path) path)))))
           (into {}))
+
+    (set? coll)
+    (-> (fn [v]
+           (let [path (cons v _path)]
+             (walk-with-path f (f v path) path)))
+        (map coll)
+        (set))
 
      ; coll is not a collection
      :else (f coll _path)
