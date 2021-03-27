@@ -16,16 +16,18 @@
      (-> (fn [i v]
            (let [path (cons i _path)]
              (walk-with-path f (f v path) path)))
-         (map coll)
+         (mapv (range) coll)
          (vec))
 
      ; List or array
      (sequential? coll)
-     (map-indexed
-       (fn [i v]
-         (let [path (cons i _path)]
-           (walk-with-path f (f v path) path)))
-       coll)
+     (doall
+       (map
+         (fn [i v]
+           (let [path (cons i _path)]
+             (walk-with-path f (f v path) path)))
+         (range)
+         coll))
 
      ; Map or record
      (map? coll)
@@ -35,12 +37,13 @@
                     (vector k (walk-with-path f (f v path) path)))))
           (into {}))
 
-    (set? coll)
-    (-> (fn [v]
+     ; Set
+     (set? coll)
+     (-> (fn [v]
            (let [path (cons v _path)]
              (walk-with-path f (f v path) path)))
-        (map coll)
-        (set))
+         (map coll)
+         (set))
 
      ; coll is not a collection
      :else (f coll _path)
@@ -52,33 +55,88 @@
   Attention: The path is a sequential collection (vector is optimal) in normal order
   (new keys are appended at the end)."
   ([f coll]
-   (walk-with-path f coll []))
+   (walk-with-path-2 f coll []))
   ([f coll _path]
    (cond
      ; Vector
      (vector? coll)
-     (vec
-       (map-indexed
-         (fn [i v]
+     (-> (fn [i v]
            (let [path (conj _path i)]
-             (walk-with-path f (f v path) path)))
-         coll))
+             (walk-with-path-2 f (f v path) path)))
+         (mapv (range) coll)
+         (vec))
 
      ; List or array
      (sequential? coll)
-     (map-indexed
-       (fn [i v]
-         (let [path (conj _path i)]
-           (walk-with-path f (f v path) path)))
-       coll)
+     (doall
+       (map
+         (fn [i v]
+           (let [path (conj _path i)]
+             (walk-with-path-2 f (f v path) path)))
+         (range)
+         coll))
 
      ; Map or record
      (map? coll)
      (->> coll
           (mapv (fn [[k v]]
                   (let [path (conj _path k)]
-                    (vector k (walk-with-path f (f v path) path)))))
+                    (vector k (walk-with-path-2 f (f v path) path)))))
           (into {}))
+
+     ; Set
+     (set? coll)
+     (-> (fn [v]
+           (let [path (conj _path v)]
+             (walk-with-path-2 f (f v path) path)))
+         (map coll)
+         (set))
+
+     ; coll is not a collection
+     :else (f coll _path)
+     )))
+
+(defn walk-with-path-3
+  "Walks a collection 'coll' (Map, Record, Vector or List) and applies a function 'f'
+  to each element and the path leading there (element first, then the path).
+  Attention: The path is a sequential collection (vector is optimal) in normal order
+  (new keys are appended at the end)."
+  ([f coll]
+   (walk-with-path-2 f coll []))
+  ([f coll _path]
+   (cond
+     ; Vector
+     (vector? coll)
+     (-> (fn [i v]
+           (let [path (conj _path i)]
+             (walk-with-path-3 f (f v path) path)))
+         (map-indexed coll)
+         (vec))
+
+     ; List or array
+     (sequential? coll)
+     (doall
+       (map-indexed
+         (fn [i v]
+           (let [path (conj _path i)]
+             (walk-with-path-3 f (f v path) path)))
+         coll))
+
+     ; Map or record
+     (map? coll)
+     (->> coll
+          (mapv (fn [[k v]]
+                  (let [path (conj _path k)]
+                    (vector k (walk-with-path-3 f (f v path) path)))))
+          (into {}))
+
+     ; Set
+     (set? coll)
+     (-> (fn [v]
+           (let [path (conj _path v)]
+             (walk-with-path-3 f (f v path) path)))
+         (map coll)
+         (set))
 
      ; coll is not a collection
      :else (f coll _path)
@@ -95,7 +153,8 @@
 (defn average-millis
   [times expr]
   (let [meridian (fn [arr]
-                   (let [len (count arr)]
+                   (let [arr (sort arr)
+                         len (count arr)]
                      (/ (+ (nth arr (/ (dec len) 2)) (nth arr (/ len 2)))
                         2)))]
     (meridian (repeatedly times (fn [] (millis (expr)))))))
@@ -112,7 +171,7 @@
   ([n nodes-per-level random]
    (if (<= n 0)
      (rand1 random 10000)
-     (case (rand1 random 3)
+     (case (rand1 random 4)
        0 (doall
            (repeatedly nodes-per-level
              #(gen-rand-structure (dec n) nodes-per-level random)))
@@ -126,6 +185,12 @@
               (apply concat)
               (apply hash-map))
 
+       3 (->> (fn [] [(str (rand1 random 200000))
+                      (gen-rand-structure (dec n) nodes-per-level random)])
+              (repeatedly nodes-per-level)
+              (apply concat)
+              (set))
+
        (rand1 random 10000)
        ))))
 
@@ -135,7 +200,7 @@
 
 (comment
   ; Create test data
-  (def test-data (gen-rand-structure 10 5))
+  (def test-data (vec (gen-rand-structure 7 5)))
 
   ; Do a simple walk (Warning: Running this in the repl on a big collection will
   ; lock for a long time because of printing
@@ -152,4 +217,8 @@
 
   ; Do a walk with a bit more work
   (average-millis 15 #(walk-with-path-2 (fn [elem path] (str path) elem) test-data))
+
+  (average-millis 15 #(walk-with-path (fn [elem path] (str path) elem) test-data))
+  (average-millis 15 #(walk-with-path-2 (fn [elem path] (str path) elem) test-data))
+  (average-millis 15 #(walk-with-path-3 (fn [elem path] (str path) elem) test-data))
   )
